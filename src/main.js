@@ -37,8 +37,6 @@ function searchImages(evt) {
 
     getImagesByQuery(query)
         .then(data => {
-            console.log(data)
-        
             if (data.hits.length === 0) {
                 return iziToast.show({
                     message: 'Sorry, there are no images matching your search query. Please try again!',
@@ -52,11 +50,19 @@ function searchImages(evt) {
             }
 
             createGallery(data.hits);
+
+            form.reset();
         })
         .catch(error => {
-            console.log(error);
+             return iziToast.error({
+                    message: error.message,
+                    backgroundColor: 'red',
+                    messageColor: 'white',
+                    progressBarColor: 'white',
+                    position: 'topRight',
+                    timeout: 8000,
+                    closeOnClick: true
+                });
         })
         .finally(() => hideLoader());
-    
-    form.reset();
 }

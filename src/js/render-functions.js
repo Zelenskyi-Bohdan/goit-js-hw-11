@@ -28,7 +28,7 @@ export function createGallery(images) {
             <p class="description-text">${image.views}</p>
             </div>
             <div class="description-container">
-            <pv class="description-header">Comments</pv>
+            <p class="description-header">Comments</p>
             <p class="description-text">${image.comments}</p>
             </div>
             <div class="description-container">
